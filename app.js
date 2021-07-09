@@ -3,6 +3,10 @@ var plays = require('./plays.json');
 
 console.log(statement(invoices[0], plays));
 
+function playFor(aPerformance){
+  return plays[aPerformance.playID];
+}
+
 function ammountFor(aPerformance, play) {
   let result = 0;
 
@@ -36,7 +40,7 @@ function statement(invoice, plays) {
     { style: "currency", currency: "USD", minimumFractionDigits: 2 }).format;
 
   for (let perf of invoice.performances) {
-    const play = plays[perf.playID];
+    const play = playFor(perf);
     let thisAmount = ammountFor(perf, play);
 
     volumeCredits += Math.max(perf.audience - 30, 0)
