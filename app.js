@@ -8,7 +8,7 @@ function statement(invoice, plays) {
   let result = `Statement for ${invoice.customer}\n`;
   for (let perf of invoice.performances) {
     // 注文の内訳を出力
-    result += ` ${playFor(perf).name}: ${usd(ammountFor(perf))} (${perf.audience} seats)\n`;
+    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
   }
 
   result += `Amount owed is ${usd(totalAmount())}\n`;
@@ -19,7 +19,7 @@ function statement(invoice, plays) {
 function totalAmount() {
   let result = 0;
   for (let perf of invoice.performances) {
-    result += ammountFor(perf);
+    result += amountFor(perf);
   }
   return result;
 }
@@ -47,7 +47,7 @@ function playFor(aPerformance) {
   return plays[aPerformance.playID];
 }
 
-function ammountFor(aPerformance) {
+function amountFor(aPerformance) {
   let result = 0;
   switch (playFor(aPerformance).type) {
     case "tragedy":
