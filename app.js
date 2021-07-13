@@ -5,11 +5,11 @@ var plays = require('./plays.json');
 console.log(statement(invoice, plays));
 
 function totalAmount() {
-  let totalAmount = 0;
+  let result = 0;
   for (let perf of invoice.performances) {
-    totalAmount += ammountFor(perf);
+    result += ammountFor(perf);
   }
-  return totalAmount;
+  return result;
 }
 
 function totalVolumeCredits() {
