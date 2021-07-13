@@ -1,8 +1,17 @@
 var invoices = require('./invoices.json');
+var invoice = invoices[0];
 var plays = require('./plays.json');
 
-console.log(statement(invoices[0], plays));
+console.log(statement(invoice, plays));
 
+
+function totalVolumeCredits() {
+  let volumeCredits = 0;
+  for (let perf of invoice.performances) {
+    volumeCredits += volumeCreditsFor(perf);
+  }
+  return volumeCredits;
+}
 
 function usd(aNumber) {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2 }).format(aNumber / 100);
@@ -45,7 +54,7 @@ function ammountFor(aPerformance) {
 
 function statement(invoice, plays) {
   let totalAmount = 0;
-  
+
   let result = `Statement for ${invoice.customer}\n`;
 
   for (let perf of invoice.performances) {
@@ -54,11 +63,7 @@ function statement(invoice, plays) {
     totalAmount += ammountFor(perf, playFor(perf));
   }
 
-  let volumeCredits = 0;
-
-  for (let perf of invoice.performances) {
-    volumeCredits += volumeCreditsFor(perf);
-  }
+  let volumeCredits = totalVolumeCredits();
   result += `Amount owed is ${usd(totalAmount)}\n`;
   result += `You earned ${volumeCredits} credits\n`;
   return result;
