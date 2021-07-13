@@ -4,6 +4,13 @@ var plays = require('./plays.json');
 
 console.log(statement(invoice, plays));
 
+function appleSauce(){
+  let totalAmount =0;
+  for (let perf of invoice.performances){
+    totalAmount += ammountFor(perf);
+  }
+return totalAmount;
+}
 
 function totalVolumeCredits() {
   let volumeCredits = 0;
@@ -52,16 +59,13 @@ function ammountFor(aPerformance) {
   return result;
 }
 
-function statement(invoice, plays) {
-  let totalAmount = 0;
-
+function statement(invoice, plays) {  
   let result = `Statement for ${invoice.customer}\n`;
-
   for (let perf of invoice.performances) {
     // 注文の内訳を出力
     result += ` ${playFor(perf).name}: ${usd(ammountFor(perf))} (${perf.audience} seats)\n`;
-    totalAmount += ammountFor(perf, playFor(perf));
   }
+  let     totalAmount = appleSauce();
 
   result += `Amount owed is ${usd(totalAmount)}\n`;
   result += `You earned ${totalVolumeCredits()} credits\n`;
