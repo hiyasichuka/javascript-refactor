@@ -72,11 +72,11 @@ function renderPlainText(data, plays) {
   }
 
   function totalVolumeCredits() {
-    let volumeCredits = 0;
+    let result = 0;
     for (let perf of data.performances) {
-      volumeCredits += perf.volumeCredits;
+      result += perf.volumeCredits;
     }
-    return volumeCredits;
+    return result;
   }
 
   function usd(aNumber) {
