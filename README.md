@@ -16,6 +16,11 @@
 - なぜなら人間が手を加える以上、間違ってバグを混入させることがあるから
 - テストはフレームワークを使ってコマンド１つでまとめて実行できるようにする
 
+## コーディング規約
+
+- 関数の戻り値を示す変数名は常にresultとする。役割が明確になるので。
+- 不定冠詞をつけたほうが好ましい（perfをaPerformanseとする)
+
 ## Pull Class Members Up refactoring﻿
 The Pull Class Members Up refactoring moves class methods upwards in the class hierarchy – from the current class to a superclass.
 
