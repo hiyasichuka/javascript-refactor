@@ -1,5 +1,17 @@
 # javascript-refactor
 
+## 各イベントに劇団員を派遣して演劇のパフォーマンスを行う会社を題材とする
+
+### 通常の処理
+- 顧客がいくつか劇を選択する
+- 会社は席数や劇の種類に応じて請求する
+
+### 備考
+- 悲劇と喜劇の2種類を提供。
+- 特典があり、次回以降利用可能。
+
+## 着手前
+
 ## Pull Class Members Up refactoring﻿
 The Pull Class Members Up refactoring moves class methods upwards in the class hierarchy – from the current class to a superclass.
 
