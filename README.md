@@ -10,7 +10,11 @@
 - 悲劇と喜劇の2種類を提供。
 - 特典があり、次回以降利用可能。
 
-## 着手前
+## リファクタリングの第一歩とは
+
+- 対象コードについてきちんとしたテスト郡を作ること
+- なぜなら人間が手を加える以上、間違ってバグを混入させることがあるから
+- テストはフレームワークを使ってコマンド１つでまとめて実行できるようにする
 
 ## Pull Class Members Up refactoring﻿
 The Pull Class Members Up refactoring moves class methods upwards in the class hierarchy – from the current class to a superclass.
